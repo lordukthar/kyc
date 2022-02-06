@@ -1,8 +1,25 @@
 import React, { Component } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export default class Login extends Component {
-    render() {
+
+ const Login = () =>  {
+
+    let navigate = useNavigate();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/landing" } };
+
+
+    let login = async () => {
+        console.log("login");
+        navigate(from);
+  };
+
+   
         return (
+            <div>
+                
+                    <div className="inner">
+
             <form>
 
                 <h3>Log in</h3>
@@ -24,11 +41,15 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={login}>Sign in</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
             </form>
-        );
-    }
+        </div>  </div> 
+            
+            );
+    
 }
+
+export default Login;

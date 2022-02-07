@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import {checkUserLogin} from '../utils/Login'
 
 
  const Login = () =>  {
@@ -10,7 +11,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 
     let login = async () => {
-        console.log("login");
+        checkUserLogin(document.getElementById("email").value)
         navigate(from);
   };
 
@@ -26,12 +27,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input id="email" type="email" className="form-control" placeholder="Enter email" />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input id="password" type="password" className="form-control" placeholder="Enter password" />
                 </div>
 
                 <div className="form-group">

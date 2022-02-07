@@ -6,9 +6,12 @@ import { Routes, Route, Link } from "react-router-dom";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import Landing from "./components/landing.component";
-
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const user = useSelector((state) => state.userReducer)
+
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
@@ -24,7 +27,9 @@ function App() {
               </li>
             </ul>
           </div>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">{user.name}</div>
         </div>
+       
       </nav>
 
  <div className="outer">
